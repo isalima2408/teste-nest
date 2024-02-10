@@ -1,12 +1,14 @@
 import { HttpException, Injectable, NotFoundException } from '@nestjs/common';
 import { Gato } from './gatos.entity'
+import { UpdateGatoDTO } from './dto/update-gato.dto';
+import { CreateGatoDTO } from './dto/create-gato.dto';
 
 @Injectable()
 export class GatosService {
     private gatos: Gato[] = [
         {
             id: 1,
-            name: 'Guida',
+            nome: 'Guida',
             raca: 'Siamês',
             tags: ['fêmea', 'doméstico'],
         },
@@ -24,20 +26,19 @@ export class GatosService {
         }
     }
 
-    // oq sig DTO??
-    create(createGatoDTO: any) {
-        this.gatos.push(createGatoDTO)
+    create(createGatoDTO: CreateGatoDTO) {
+        this.gatos.push(createGatoDTO as Gato)
     }
 
-    // 'as any' inserido só para 'passar' pela verificação, porque foi alterado o método findOne que é usado aqui
-    update(id: number, updateGatoDTO: any) {
-        const existingGato = this.findOne(id)
-        if(existingGato as any) {
-            const index = this.gatos.findIndex(gato => gato.id === id)
+    update(id: number, updateGatoDTO: UpdateGatoDTO) {
+        const index = this.gatos.findIndex(gato => gato.id === id);
+        if (index !== -1) {
             this.gatos[index] = {
                 id,
-                ...updateGatoDTO,
-            }
+                ...(updateGatoDTO as Gato),
+            };
+        } else {
+            throw new Error(`Gato com o ID ${id} não encontrado.`);
         }
     }
 

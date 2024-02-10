@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Body, Post, Res, Delete, HttpCode, HttpStatus, Put } from '@nestjs/common';
+import { Controller, Get, Param, Body, Post, Delete, HttpCode, HttpStatus, Put } from '@nestjs/common';
 import { GatosService } from './gatos.service';
 import { CreateGatoDTO } from './dto/create-gato.dto';
 import { UpdateGatoDTO } from './dto/update-gato.dto';
@@ -10,12 +10,12 @@ export class GatosController {
 
     @Get()
     findAll() {
-        return this.gatosService.findAll()
+        return this.gatosService.findAll();
     }
 
     @Get(':id')
     findOne(@Param('id') id: number) {
-        return this.gatosService.findOne(+id)
+        return this.gatosService.findOne(id);
     }
 
     @Post()
@@ -25,12 +25,13 @@ export class GatosController {
 
     @Put(':id')
     update(@Param('id') id: number, @Body() updateGatoDTO: UpdateGatoDTO) {
-        return this.gatosService.update(+id, updateGatoDTO)
+        console.log("🚀 ~ GatosController ~ update ~ id:", id)
+        return this.gatosService.update(id, updateGatoDTO);
     }
 
     @HttpCode(HttpStatus.NO_CONTENT)
     @Delete(':id')
     remove(@Param('id') id: number) {
-        return this.gatosService.remove(+id)
+        return this.gatosService.remove(id);
     }
 }

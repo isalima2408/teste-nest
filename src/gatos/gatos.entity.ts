@@ -1,6 +1,6 @@
 export class Gato {
     id: number
-    name: string
+    nome: string
     raca: string
     tags: string[]
 }
