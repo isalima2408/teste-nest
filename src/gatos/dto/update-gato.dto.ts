@@ -4,7 +4,7 @@ import { CreateGatoDTO } from "./create-gato.dto";
 
 // restringe tipo das variáveis para serem recebidas (instalar mapped types)
 export class UpdateGatoDTO extends PartialType(CreateGatoDTO) {
-    @IsInt()
+    /*@IsInt()
     readonly id?: number
 
     @IsString()
@@ -14,5 +14,5 @@ export class UpdateGatoDTO extends PartialType(CreateGatoDTO) {
     readonly raca?: string
 
     @IsString({ each: true })
-    readonly tags?: string[]
+    readonly tags?: string[]*/
 }

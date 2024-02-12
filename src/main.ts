@@ -12,7 +12,7 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe({
     whitelist: true,
 
-    // ao ter campo "a mais", ele retorna "Bad Request", e nao aceita a requsição
+    // ao ter campo "a mais", ele retorna "Bad Request", e nao aceita a requisição
     forbidNonWhitelisted: true,
 
     // transforma a string vinda da requisição em outro tipo informado

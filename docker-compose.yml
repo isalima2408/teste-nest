@@ -1,0 +1,14 @@
+version: '3.1'
+
+services:
+  db:
+    build: .
+    container_name: primeiro-projeto-db
+    restart: always
+    ports: 
+      - "3000:3000"
+    volumes:
+      - .docker/dbdata:/var/lib/postgresql/data
+    enviroment:
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_DB=primeiroProjeto
