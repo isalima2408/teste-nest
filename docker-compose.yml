@@ -6,9 +6,9 @@ services:
     container_name: primeiro-projeto-db
     restart: always
     ports: 
-      - "3000:3000"
+      - "5432:5432"
     volumes:
       - .docker/dbdata:/var/lib/postgresql/data
-    enviroment:
+    environment:
       - POSTGRES_PASSWORD=docker
       - POSTGRES_DB=primeiroProjeto
