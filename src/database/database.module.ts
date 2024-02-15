@@ -1,5 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { Gato } from 'src/gatos/entities/gatos.entity';
+import { Tag } from 'src/gatos/entities/tag.entity';
 import { DataSourceOptions } from 'typeorm';
 
 export const dataSourceOptions: DataSourceOptions = {
@@ -9,7 +11,7 @@ export const dataSourceOptions: DataSourceOptions = {
     username: 'postgres',
     password: 'docker',
     database: 'primeiroProjeto',
-    entities: [],
+    entities: [Gato, Tag],
     synchronize: true,
 }
 

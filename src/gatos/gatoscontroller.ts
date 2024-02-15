@@ -13,6 +13,7 @@ export class GatosController {
         return this.gatosService.findAll();
     }
 
+    // nao ta prestando
     @Get(':id')
     findOne(@Param('id') id: number) {
         return this.gatosService.findOne(id);

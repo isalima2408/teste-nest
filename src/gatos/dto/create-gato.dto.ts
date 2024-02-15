@@ -1,8 +1,9 @@
 import { IsString } from "class-validator";
+import { Tag } from "../entities/tag.entity";
 
 export class CreateGatoDTO {
     @IsString()
-    readonly nome: string
+    readonly name: string
 
     @IsString()    
     readonly raca: string
